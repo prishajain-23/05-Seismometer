@@ -12,7 +12,7 @@ Try out Seismometer by placing your iPad on a flat surface and then jostling it 
 
 ## Tutorial
 
-[View a tutorial on this sample.](doc://com.apple.documentation/tutorials/sample-apps/Seismometer)
+[View a tutorial on this sample.](https://developer.apple.com/tutorials/sample-apps/seismometer?language=swift)
 
 ## Running the Sample Code Project
 
