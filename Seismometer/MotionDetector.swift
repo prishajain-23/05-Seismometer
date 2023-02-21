@@ -19,7 +19,7 @@ class MotionDetector: ObservableObject {
     
     private var currentOrientation: UIDeviceOrientation = .landscapeLeft
     private var orientationObserver: NSObjectProtocol? = nil
-    let orientationNotification = UIDevice.orientationDidChangeNotification
+    let notification = UIDevice.orientationDidChangeNotification
 
     init(updateInterval: TimeInterval) {
         self.updateInterval = updateInterval
@@ -33,12 +33,12 @@ class MotionDetector: ObservableObject {
                 self.updateMotionData()
             }
         } else {
-            print("Device motion not available")
+            print("Motion data isn't available on this device.")
         }
         
         UIDevice.current.beginGeneratingDeviceOrientationNotifications()
 
-        orientationObserver = NotificationCenter.default.addObserver(forName: orientationNotification, object: nil, queue: .main) { [weak self] _ in
+        orientationObserver = NotificationCenter.default.addObserver(forName: notification, object: nil, queue: .main) { [weak self] _ in
             switch UIDevice.current.orientation {
             case .faceUp, .faceDown, .unknown:
                 break
@@ -61,7 +61,7 @@ class MotionDetector: ObservableObject {
         motionManager.stopDeviceMotionUpdates()
         timer.invalidate()
         if let orientationObserver = orientationObserver {
-            NotificationCenter.default.removeObserver(orientationObserver, name: orientationNotification, object: nil)
+            NotificationCenter.default.removeObserver(orientationObserver, name: notification, object: nil)
         }
         orientationObserver = nil
     }
