@@ -5,7 +5,7 @@ See the License.txt file for this sample’s licensing information.
 import SwiftUI
 
 struct SeismometerBrowser: View {
-    @StateObject private var detector = MotionDetector(updateInterval: 0.01)
+    @EnvironmentObject private var detector: MotionDetector
 
     var body: some View {
         NavigationSplitView {
@@ -50,7 +50,6 @@ struct SeismometerBrowser: View {
             Text("Select a Seismometer Example")
                 .foregroundColor(.secondary)
         }
-        .environmentObject(detector)
         .onAppear() {
             detector.start()
         }
@@ -61,7 +60,9 @@ struct SeismometerBrowser: View {
 }
 
 struct SeismometerBrowser_Previews: PreviewProvider {
+    @StateObject static private var detector = MotionDetector(updateInterval: 0.01).started()
     static var previews: some View {
         SeismometerBrowser()
+            .environmentObject(detector)
     }
 }
