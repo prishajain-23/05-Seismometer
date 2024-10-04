@@ -55,8 +55,6 @@ struct GaugeBackground: View {
     }
 }
 
-struct GaugeBackground_Previews: PreviewProvider {
-    static var previews: some View {
-        GaugeBackground(width: 300)
-    }
+#Preview {
+    GaugeBackground(width: 300)
 }
