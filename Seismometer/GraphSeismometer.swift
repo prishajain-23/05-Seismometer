@@ -59,11 +59,7 @@ struct GraphSeismometer: View {
     }
 }
 
-struct GraphSeismometer_Previews: PreviewProvider {
-    @StateObject static private var detector = MotionDetector(updateInterval: 0.01).started()
-
-    static var previews: some View {
-        GraphSeismometer()
-            .environmentObject(detector)
-    }
+#Preview {
+    GraphSeismometer()
+        .environmentObject(MotionDetector(updateInterval: 0.01).started())
 }

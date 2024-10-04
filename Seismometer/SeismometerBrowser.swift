@@ -59,10 +59,7 @@ struct SeismometerBrowser: View {
     }
 }
 
-struct SeismometerBrowser_Previews: PreviewProvider {
-    @StateObject static private var detector = MotionDetector(updateInterval: 0.01).started()
-    static var previews: some View {
-        SeismometerBrowser()
-            .environmentObject(detector)
-    }
+#Preview {
+    SeismometerBrowser()
+        .environmentObject(MotionDetector(updateInterval: 0.01).started())
 }

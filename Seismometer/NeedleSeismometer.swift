@@ -52,12 +52,8 @@ struct NeedleSeismometer: View {
         }
     }
 }
-
-struct NeedleSeismometer_Previews: PreviewProvider {
-    @StateObject static private var detector = MotionDetector(updateInterval: 0.01).started()
     
-    static var previews: some View {
-        NeedleSeismometer()
-            .environmentObject(detector)
-    }
+#Preview {
+    NeedleSeismometer()
+        .environmentObject(MotionDetector(updateInterval: 0.01).started())
 }
