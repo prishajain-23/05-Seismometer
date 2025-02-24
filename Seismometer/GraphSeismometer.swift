@@ -5,7 +5,7 @@ See the License.txt file for this sample’s licensing information.
 import SwiftUI
 
 struct GraphSeismometer: View {
-    @EnvironmentObject private var detector: MotionDetector
+  @Environment(MotionDetector.self) private var detector
     @State private var data = [Double]()
     let maxData = 1000
 
@@ -61,5 +61,5 @@ struct GraphSeismometer: View {
 
 #Preview {
     GraphSeismometer()
-        .environmentObject(MotionDetector(updateInterval: 0.01).started())
+        .environment(MotionDetector(updateInterval: 0.01).started())
 }

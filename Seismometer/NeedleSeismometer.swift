@@ -5,7 +5,7 @@ See the License.txt file for this sample’s licensing information.
 import SwiftUI
 
 struct NeedleSeismometer: View {
-    @EnvironmentObject var motionDetector: MotionDetector
+  @Environment(MotionDetector.self) private var motionDetector
 
     let needleAnchor = UnitPoint(x: 0.5, y: 1)
     let amplification = 2.0
@@ -55,5 +55,5 @@ struct NeedleSeismometer: View {
     
 #Preview {
     NeedleSeismometer()
-        .environmentObject(MotionDetector(updateInterval: 0.01).started())
+        .environment(MotionDetector(updateInterval: 0.01).started())
 }
