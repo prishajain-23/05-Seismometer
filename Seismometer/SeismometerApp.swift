@@ -9,13 +9,13 @@ import SwiftUI
 
 @main
 struct SeismometerApp: App {
-    @State var detector = MotionDetector(updateInterval: 0.01)
-    
-    var body: some Scene {
-        WindowGroup {
-            SeismometerBrowser()
-                .environment(detector)
-            
-        }
+  @State var detector = MotionDetector(updateInterval: 0.01)
+
+  var body: some Scene {
+    WindowGroup {
+      SeismometerBrowser()
+        .environment(detector)
+
     }
+  }
 }
