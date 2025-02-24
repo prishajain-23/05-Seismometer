@@ -77,7 +77,7 @@ struct LineGraph: View {
 
       context.stroke(path, with: .color(.accentColor))
     }
-    .onChange(of: data) { _ in
+    .onChange(of: data) { 
       timestep += 1
     }
   }
