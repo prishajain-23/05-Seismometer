@@ -57,7 +57,7 @@ struct LineGraph: View {
         y -= increment * Double(gridSpacing)
       } while y >= 0
 
-      context.stroke(lines, with: .color(.black.opacity(0.25)))
+        context.stroke(lines, with: .color(.primary.opacity(0.25)))
 
       guard !data.isEmpty else { return }
 
@@ -75,7 +75,7 @@ struct LineGraph: View {
             y: self.yGraphPosition(dataPoint, in: size)))
       }
 
-      context.stroke(path, with: .color(.accentColor))
+        context.stroke(path, with: .color(.primary))
     }
     .onChange(of: data) { 
       timestep += 1
